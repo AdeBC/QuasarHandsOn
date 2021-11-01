@@ -1,99 +1,74 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="glossy">
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
-          icon="menu"
-        />
+  <q-layout view="hHh lpR lFr">
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
+    <q-header reveal bordered class="bg-primary text-white" height-hint="98">
+      <q-toggle v-model="CNLang" color="blue"  model-value="CNlang"/>
+      <q-toggle v-model="darkTheme" color="gray" model-value="darkTheme"/>
     </q-header>
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      class="bg-grey-2"
-    >
-      <q-list>
-        <q-item-label header>Essential Links</q-item-label>
-        <q-item clickable tag="a" target="_blank" href="https://quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="school" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Docs</q-item-label>
-            <q-item-label caption>quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://github.com/quasarframework/">
-          <q-item-section avatar>
-            <q-icon name="code" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Github</q-item-label>
-            <q-item-label caption>github.com/quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://chat.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="chat" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>chat.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://forum.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="forum" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Forum</q-item-label>
-            <q-item-label caption>forum.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://twitter.com/quasarframework">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>@quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-drawer>
 
     <q-page-container>
-      <HelloWorld />
+      <div class="row">
+        <div class="col-0 col-xl-2"></div>
+        <div class="col-12 col-xl-8">
+          <div class="row">
+            <!--          sidebar-->
+            <div class="col-12 col-md-2">
+              <h1> Hui Chong </h1>
+              <div class="bg-primary" style="height: 300px"></div>
+              Research assistant
+              Fudan University
+              Email: huichong.me@gmail.com
+              Office: 220, Handan Road, Yangpu District, Shanghai, China
+
+              GitHub
+              Google Scholar
+              ORCID
+            </div>
+            <div class="col-12 col-md-10">
+              <div class="row">
+                <div class="col-12">
+                  <h2>Education</h2>
+                  <ul>
+                    <li>BSc Bioinformatics, <span class="text-bold">Huazhong University of Science and Technology</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <h2>Research</h2>
+                  Currently my research is mainly focused on applications of deep learning in microbiome data mining.
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <h2>Publication</h2>
+                  <div class="row bg-secondary" style="height: 500px">
+                    xxxxxx
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-0 col-xl-2"></div>
+      </div>
     </q-page-container>
+
   </q-layout>
 </template>
 
 <script>
 import { ref } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'LayoutDefault',
-
-  components: {
-    HelloWorld
-  },
-
   setup () {
+    const leftDrawerOpen = ref(false)
+
     return {
-      leftDrawerOpen: ref(false)
+      leftDrawerOpen,
+      toggleLeftDrawer () {
+        leftDrawerOpen.value = !leftDrawerOpen.value
+      }
     }
   }
 }
